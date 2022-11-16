@@ -3,14 +3,15 @@
 <head th:replace="fragments :: head">
 </head>
 <body>
-<div th:fragment="display">
-    <link href="../static/css/techjobs.css" th:href="@{/css/techjobs.css}" rel="stylesheet" />
+<link href="../static/css/techjobs.css" th:href="@{/css/techjobs.css}" rel="stylesheet" />
+<div th:replace="fragments :: page-header"></div>
+
+
     <div class="container body-content"></div>
     <div class="job-listing"></div>
 
     <th:block th:each="job : ${jobs}">
         <table class = "job-listing">
-            <tbody>
             <tr>
                 <td>ID</td>
                 <td th:text ="${job.id}"></td>
@@ -33,7 +34,7 @@
 
             <tr>
                 <td>Position Type</td>
-                <td th:text ="${job.employer}"></td>
+                <td th:text ="${job.positionType}"></td>
             </tr>
 
             <tr>
@@ -41,11 +42,9 @@
                 <td th:text ="${job.coreCompetency}"></td>
             </tr>
 
-            </tbody>
+
         </table>
     </th:block>
-</div>
 
-</div>
 </body>
 </html>
